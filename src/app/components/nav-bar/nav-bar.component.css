@@ -1,0 +1,23 @@
+.nav-bar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    background-color: #333;
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    height: 60px;
+    width: 100%;
+}
+a{
+    color: #fff;
+    text-decoration: none;
+    margin-right: 10px;
+
+}
+.active{
+    color: #f00;
+    font-size: 25px;
+}
