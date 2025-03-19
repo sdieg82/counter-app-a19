@@ -42,15 +42,13 @@ export class DragonBallPageComponent {
 
   searchHero(event: any) {
     const value = event.target.value.toLowerCase();
-    console.log(value);
 
     // Filtramos siempre sobre la copia original
     this.heroes = this.originalHeroes.filter(hero =>
       hero.name.toLowerCase().includes(value)
     );
 
-    console.log('heroes', this.heroes);
-    console.log('original', this.originalHeroes);
+ 
   }
 
 }
