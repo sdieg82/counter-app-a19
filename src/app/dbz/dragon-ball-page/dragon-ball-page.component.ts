@@ -1,7 +1,8 @@
 import { Component, inject } from '@angular/core';
-import { Hero } from '../interfaces/Hero-interface';
+import { Hero } from '../../interfaces/Hero-interface';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DragonBallListComponent } from "../dragon-ball-list/dragon-ball-list.component";
 
 @Component({
   selector: 'app-dragon-ball-page',
@@ -9,8 +10,9 @@ import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     FormsModule,
-    ReactiveFormsModule
-  ],
+    ReactiveFormsModule,
+    DragonBallListComponent
+],
   templateUrl: './dragon-ball-page.component.html',
   styleUrl: './dragon-ball-page.component.css'
 })
@@ -40,15 +42,6 @@ export class DragonBallPageComponent {
     console.log('heroes', this.heroes);
   }
 
-  searchHero(event: any) {
-    const value = event.target.value.toLowerCase();
-
-    // Filtramos siempre sobre la copia original
-    this.heroes = this.originalHeroes.filter(hero =>
-      hero.name.toLowerCase().includes(value)
-    );
-
  
-  }
 
 }

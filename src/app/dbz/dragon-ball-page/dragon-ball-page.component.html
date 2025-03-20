@@ -20,12 +20,6 @@
         </button>
     </form>
     <div class="col-6">
-        <h3>Listado</h3>
-        <input type="text" (input)="searchHero($event!)" placeholder="Buscar" class="form-control">
-        <ul>
-            <li *ngFor="let hero of heroes">
-                {{hero.name}} - {{hero.power}}
-            </li>
-        </ul>
+       <app-dragon-ball-list [heroes]="heroes"></app-dragon-ball-list>
     </div>
 </div>
