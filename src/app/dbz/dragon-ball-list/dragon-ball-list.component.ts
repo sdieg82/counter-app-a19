@@ -17,19 +17,17 @@ export class DragonBallListComponent implements OnInit{
 
   }
   
-  
   @Input()
   public heroes:Hero[] = [];
   public originalHeroes:Hero[]=[]
 
   ngOnInit(): void {
-    console.log('desde list', this.heroes);
     this.originalHeroes=[...this.heroes];
-    console.log('copy',this.originalHeroes);
+    console.log('desde list', this.heroes);
   }
   searchHero(event:any){
+    console.log('copy',this.originalHeroes);
    const value=event.target.value;
    this.heroes=this.originalHeroes.filter(hero=>hero.name.toLocaleLowerCase().includes(value))
   }
-
 }
