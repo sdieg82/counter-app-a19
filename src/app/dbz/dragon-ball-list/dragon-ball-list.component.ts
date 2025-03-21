@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, input } from '@angular/core';
+import { Component, Input, input, OnInit } from '@angular/core';
 import { Hero } from '../../interfaces/Hero-interface';
 
 @Component({
@@ -11,18 +11,25 @@ import { Hero } from '../../interfaces/Hero-interface';
   templateUrl: './dragon-ball-list.component.html',
   styleUrl: './dragon-ball-list.component.css'
 })
-export class DragonBallListComponent {
-
-  // Copia original para respaldar siempre
+export class DragonBallListComponent implements OnInit{
   
+  constructor(){
 
-  heroes=input.required<Hero[]>();
-
-  searchHero(event: any) {
-    const value = event.target.value.toLowerCase();
-    const filteredHeroes = this.heroes().filter((hero) => {
-      return hero.name.toLowerCase().includes(value);
-    });
-  
   }
+  
+  
+  @Input()
+  public heroes:Hero[] = [];
+  public originalHeroes:Hero[]=[]
+
+  ngOnInit(): void {
+    console.log('desde list', this.heroes);
+    this.originalHeroes=[...this.heroes];
+    console.log('copy',this.originalHeroes);
+  }
+  searchHero(event:any){
+   const value=event.target.value;
+   this.heroes=this.originalHeroes.filter(hero=>hero.name.toLocaleLowerCase().includes(value))
+  }
+
 }

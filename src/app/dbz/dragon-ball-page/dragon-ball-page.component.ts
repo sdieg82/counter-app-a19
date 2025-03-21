@@ -1,7 +1,7 @@
-import { Component, inject } from '@angular/core';
-import { Hero } from '../../interfaces/Hero-interface';
+import { Component, inject, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Hero } from '../../interfaces/Hero-interface';
 import { DragonBallListComponent } from "../dragon-ball-list/dragon-ball-list.component";
 
 @Component({
@@ -23,7 +23,6 @@ export class DragonBallPageComponent {
     name: [''],
     power: ['']
   });
-
   public heroes: Hero[] = [
     { name: 'Goku', power: 'Super Saiyan' },
     { name: 'Vegeta', power: 'Super Saiyan 2' },
@@ -39,9 +38,8 @@ export class DragonBallPageComponent {
       this.originalHeroes.push(hero); // También actualizar el respaldo
       this.heroForm.reset();
     }
-    console.log('heroes', this.heroes);
+    // console.log('heroes', this.heroes);
   }
 
- 
 
 }
