@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, input, OnInit } from '@angular/core';
+import { Component, inject, Input, input, OnInit } from '@angular/core';
 import { Hero } from '../../interfaces/Hero-interface';
+import { DbzService } from '../service/dbz-service.service';
 
 @Component({
   selector: 'app-dragon-ball-list',
@@ -13,15 +14,17 @@ import { Hero } from '../../interfaces/Hero-interface';
 })
 export class DragonBallListComponent implements OnInit{
   
+  constructor(){
+    
+  }
+
   characters=input.required<Hero[]>()
   public heroes:Hero[] = [];
   public originalHeroes:Hero[]=[]
- 
-  constructor(){
-  }
+  private readonly dbzService=inject(DbzService)
   
   ngOnInit(): void {
-    this.heroes=[...this.characters()]
+    this.listCharacters();
     this.originalHeroes=[...this.characters()];
     console.log('desde list', this.heroes);
   }
@@ -32,13 +35,9 @@ export class DragonBallListComponent implements OnInit{
    console.log('this.heroes',this.heroes)
   }
 
-  addCharacter(character:Hero){
-    if (character.name && character.power) {
-      this.heroes.push(character);
-      this.originalHeroes.push(character); // También actualizar el respaldo
-      console.log('Character added:', character);
-    } else {
-      console.error('Character name and power are required');
-    }
+  listCharacters(){
+    this.heroes=this.dbzService.characters()
+    console.log('estos son los heroes desde list characters',this.heroes)
   }
+
 }

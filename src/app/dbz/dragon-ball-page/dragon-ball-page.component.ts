@@ -4,6 +4,7 @@ import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Hero } from '../../interfaces/Hero-interface';
 import { DragonBallListComponent } from "../dragon-ball-list/dragon-ball-list.component";
 import { DbzAddComponent } from "../dbz-add/dbz-add.component";
+import { DbzService } from '../service/dbz-service.service';
 
 @Component({
   selector: 'app-dragon-ball-page',
@@ -20,23 +21,7 @@ import { DbzAddComponent } from "../dbz-add/dbz-add.component";
 })
 export class DragonBallPageComponent {
 
-  characters=signal<Hero[]>([
-    {id:1,name:'Goku',power:'200'},
-    {id:2,name:'Vegeta',power:'200'},
-    {id:3,name:'Trunks',power:'200'},
-  ])
+public dbzService=inject(DbzService)
 
-  newCharacter=output<Hero>();
-
-  // Copia original para respaldar siempre
-  private originalHeroes: Hero[] = [...this.characters()];
-
-  addHero(newCharacter:Hero){
-    console.log('añadiendo...',newCharacter)
-    this.characters.update(
-      (list)=>[...list,newCharacter]
-    )
-    console.log('despues añadido',this.characters())
-  }
   
 }

@@ -1,6 +1,7 @@
 import { Component, inject, output } from '@angular/core';
 import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Hero } from '../../interfaces/Hero-interface';
+import { DbzService } from '../service/dbz-service.service';
 
 @Component({
   selector: 'app-dbz-add',
@@ -11,6 +12,8 @@ import { Hero } from '../../interfaces/Hero-interface';
 })
 export class DbzAddComponent {
 
+  private readonly dbzService=inject(DbzService)
+
   public fb=inject(FormBuilder)
   public heroForm = this.fb.group({
       name: [''],
@@ -19,6 +22,7 @@ export class DbzAddComponent {
   
   newHero=output<Hero>()
   addHero() {
+  //  console.log('desde addHero')
     if(!this.heroForm.valid){
       return
     }
@@ -27,7 +31,7 @@ export class DbzAddComponent {
       name:this.heroForm.value.name ?? '',
       power:this.heroForm.value.power?? ''
     }
-    this.newHero.emit(newHero)
+    this.dbzService.addHero(newHero)
     this.resetFields();
     // console.log('heroes', this.heroes);
   }
