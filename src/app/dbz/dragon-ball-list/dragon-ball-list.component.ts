@@ -26,7 +26,7 @@ export class DragonBallListComponent implements OnInit{
     console.log('desde list', this.heroes);
   }
   searchHero(event:any){
-    console.log('copy',this.originalHeroes);
+   console.log('copy',this.originalHeroes);
    const value=event.target.value;
    this.heroes=this.originalHeroes.filter(hero=>hero.name.toLocaleLowerCase().includes(value))
   }

@@ -16,5 +16,9 @@ export const routes: Routes = [
    {
       path:'dbz',
       component:DragonBallPageComponent
+   },
+   {
+      path:'**',
+      redirectTo:''
    }
 ];
