@@ -1,7 +1,10 @@
 <h3>Listado</h3>
 <input type="text" (input)="searchHero($event)" placeholder="Buscar" class="form-control">
 <ul>
-    <li *ngFor="let hero of heroes">
-        {{hero.name}} - {{hero.power}}
+   @for (hero of characters(); track hero.id) {
+    <li>
+        <span>{{hero.name}} -</span>
+        <strong>{{hero.power}}</strong>
     </li>
+   }
 </ul>

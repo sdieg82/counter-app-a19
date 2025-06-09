@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 
@@ -6,11 +7,18 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   standalone: true,
   imports: [
     RouterLinkActive,
-    RouterLink
+    RouterLink,
+    CommonModule
   ],
   templateUrl: './nav-bar.component.html',
   styleUrl: './nav-bar.component.css'
 })
 export class NavBarComponent {
+  
+  routesNavBar=[
+    {title:'Counter App',path:'/'},
+    {title:'Hero App',path:'/hero'},
+    {title:'DBZ App',path:'/dbz'},
+  ]
 
 }

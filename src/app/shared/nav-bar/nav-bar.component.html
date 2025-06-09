@@ -1,17 +1,8 @@
 <nav class="nav-bar">
     <a 
-    routerLink="/" 
+    *ngFor="let route of routesNavBar"
+    [routerLink]="route.path" 
     routerLinkActive="active" 
     [routerLinkActiveOptions]="{exact: true}"
-    >Counter App</a>
-    <a 
-    routerLink="/hero" 
-    routerLinkActive="active" 
-    [routerLinkActiveOptions]="{exact: true}"
-    >Hero App</a>
-    <a 
-    routerLink="/dbz" 
-    routerLinkActive="active" 
-    [routerLinkActiveOptions]="{exact: true}"
-    >Dragon Ball App App</a>
+    >{{route.title}}</a>
 </nav>

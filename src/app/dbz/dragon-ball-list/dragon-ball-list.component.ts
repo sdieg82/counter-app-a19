@@ -13,21 +13,32 @@ import { Hero } from '../../interfaces/Hero-interface';
 })
 export class DragonBallListComponent implements OnInit{
   
-  constructor(){
-
-  }
-  
-  @Input()
+  characters=input.required<Hero[]>()
   public heroes:Hero[] = [];
   public originalHeroes:Hero[]=[]
-
+ 
+  constructor(){
+  }
+  
   ngOnInit(): void {
-    this.originalHeroes=[...this.heroes];
+    this.heroes=[...this.characters()]
+    this.originalHeroes=[...this.characters()];
     console.log('desde list', this.heroes);
   }
   searchHero(event:any){
    console.log('copy',this.originalHeroes);
    const value=event.target.value;
-   this.heroes=this.originalHeroes.filter(hero=>hero.name.toLocaleLowerCase().includes(value))
+   this.heroes = this.originalHeroes.filter(hero=>hero.name.toLocaleLowerCase().includes(value))
+   console.log('this.heroes',this.heroes)
+  }
+
+  addCharacter(character:Hero){
+    if (character.name && character.power) {
+      this.heroes.push(character);
+      this.originalHeroes.push(character); // También actualizar el respaldo
+      console.log('Character added:', character);
+    } else {
+      console.error('Character name and power are required');
+    }
   }
 }
