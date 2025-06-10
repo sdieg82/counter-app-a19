@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, Input, input, OnInit } from '@angular/core';
 import { Hero } from '../../interfaces/Hero-interface';
-import { DbzService } from '../service/dbz-service.service';
+import { DbzService } from '../../services/dbz-service.service';
 
 @Component({
   selector: 'app-dragon-ball-list',

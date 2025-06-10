@@ -1,7 +1,7 @@
 import { Component, inject, output } from '@angular/core';
 import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Hero } from '../../interfaces/Hero-interface';
-import { DbzService } from '../service/dbz-service.service';
+import { DbzService } from '../../services/dbz-service.service';
 
 @Component({
   selector: 'app-dbz-add',

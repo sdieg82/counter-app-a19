@@ -1,10 +1,10 @@
-import { Component, inject, Input, output, signal } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { Hero } from '../../interfaces/Hero-interface';
-import { DragonBallListComponent } from "../dragon-ball-list/dragon-ball-list.component";
-import { DbzAddComponent } from "../dbz-add/dbz-add.component";
-import { DbzService } from '../service/dbz-service.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DragonBallListComponent } from "../../components/dragon-ball-list/dragon-ball-list.component";
+
+import { DbzService } from '../../services/dbz-service.service';
+import { DbzAddComponent } from "../../components/dbz-add/dbz-add.component";
 
 @Component({
   selector: 'app-dragon-ball-page',

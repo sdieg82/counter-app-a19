@@ -1,5 +1,5 @@
 import { effect, Injectable, output, signal } from '@angular/core';
-import { Hero } from '../../interfaces/Hero-interface';
+import { Hero } from '../interfaces/Hero-interface';
 
 @Injectable({
   providedIn: 'root',
