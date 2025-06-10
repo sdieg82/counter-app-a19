@@ -1,15 +1,12 @@
 <h2>Dragon Ball</h2>
-<hr>
+<hr />
 <div class="row">
-   <div class="col-6">
-    <app-dbz-add 
-   
-    >
-    </app-dbz-add>
-   </div>
-    <div class="col-6">
-       <app-dragon-ball-list 
-        [characters]="dbzService.characters()"
-       ></app-dragon-ball-list>
-    </div>
+  <div class="col-6">
+    <app-dbz-add> </app-dbz-add>
+  </div>
+  <div class="col-6">
+    <app-dragon-ball-list
+      [characters]="dbzService.characters()"
+    ></app-dragon-ball-list>
+  </div>
 </div>

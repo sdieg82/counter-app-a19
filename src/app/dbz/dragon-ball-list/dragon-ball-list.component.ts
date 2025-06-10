@@ -24,9 +24,7 @@ export class DragonBallListComponent implements OnInit{
   private readonly dbzService=inject(DbzService)
   
   ngOnInit(): void {
-    this.listCharacters();
-    this.originalHeroes=[...this.characters()];
-    console.log('desde list', this.heroes);
+ 
   }
   searchHero(event:any){
    console.log('copy',this.originalHeroes);
@@ -35,9 +33,6 @@ export class DragonBallListComponent implements OnInit{
    console.log('this.heroes',this.heroes)
   }
 
-  listCharacters(){
-    this.heroes=this.dbzService.characters()
-    console.log('estos son los heroes desde list characters',this.heroes)
-  }
+
 
 }
