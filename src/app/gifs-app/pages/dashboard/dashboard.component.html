@@ -1,0 +1,15 @@
+<div
+  class="bg-slate-100 overflow-y-scroll w-screen h-screen antialiased text-slate-300 selection:bg-blue-600 selection:text-white"
+>
+  <div class="flex flex-col relative w-screen">
+    <!-- gifs side menu -->
+    <app-side-menu-gifs></app-side-menu-gifs>
+
+    <div
+      class="ml-[220px] px-4 flex flex-col flex-1 w-full h-full text-slate-800"
+    >
+      <!-- <app-search-page></app-search-page> -->
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
