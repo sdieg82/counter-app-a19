@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 
 interface MenuOption{
   icon:string
@@ -13,7 +13,8 @@ interface MenuOption{
   selector: 'app-side-menu-options',
   standalone: true,
   imports: [
-    RouterLink
+    RouterLink,
+    RouterLinkActive
   ],
   templateUrl: './side-menu-options.component.html',
   styleUrl: './side-menu-options.component.css'
@@ -23,22 +24,16 @@ export class SideMenuOptionsComponent {
   public menuOptions:MenuOption[]=[
     {
       label: 'Trending',
-      subLabel: 'Most popular gifs',
+      subLabel: 'Gigs populares',
       router: '/dashboard/trending',
-      icon:''
+      icon:'fa-solid fa-chart-line'
     },
     {
-      label: 'Search',
-      subLabel: 'Search for gifs',
+      label: 'Buscar',
+      subLabel: 'Buscar Gifs',
       router: '/dashboard/search',
-      icon:''
+      icon:'fa-solid fa-magnifying-glass'
     },
-    {
-      label: 'Not Found',
-      subLabel: 'Page not found',
-      router: '/dashboard/not-found',
-      icon:''
-    }
   ]
 
 }
