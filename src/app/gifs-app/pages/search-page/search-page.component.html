@@ -1,1 +1,15 @@
-<p>search-page works!</p>
+<h2 class="flex flex-col justify-center text-center p-2">Buscar gifs</h2>
+
+<section class="flex flex-col gap-4">
+    <input type="text" 
+    class="w-full p-2 border-gray-300 rounded-md" 
+    placeholder="Ingrese el gif a buscar"
+    (keyup.enter)="searchGif(txtSearch.value)" 
+    #txtSearch
+    />
+</section>
+
+
+<section>
+    <app-gif-list [gifs]="gifs" ></app-gif-list>
+</section>

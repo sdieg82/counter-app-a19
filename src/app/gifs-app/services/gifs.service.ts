@@ -12,7 +12,7 @@ import { GifMapper } from '../mapper/gif.mapper';
 export class GifsService {
 
   constructor() {
-    this.getGifs()
+    // this.getGifs()
    }
 
   private http=inject(HttpClient)
@@ -31,7 +31,20 @@ export class GifsService {
     .subscribe((res)=>{
       const gifs=GifMapper.mapGiphyItemToGifArray(res.data)
       this.trendingGifs.set(gifs)
-    
     })
+  }
+
+  getGif(gifName:string):Observable<GiphyResponse>{
+    console.log('gifname desde el service',gifName)
+    return this.http.get<GiphyResponse>(`${environment.apiGifUrl}/gifs/search`,
+      {
+        params:{
+          api_key:environment.giphyApiKey,
+          q:gifName,
+          limit:20,
+        }
+      }
+    )
+    
   }
 }
