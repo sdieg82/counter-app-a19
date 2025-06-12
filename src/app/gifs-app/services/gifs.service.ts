@@ -1,5 +1,5 @@
 import { inject, Injectable, signal } from '@angular/core';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { GiphyItem, GiphyResponse } from '../interfaces/Giphy.interface';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
@@ -34,7 +34,7 @@ export class GifsService {
     })
   }
 
-  getGif(gifName:string):Observable<GiphyResponse>{
+  getGif(gifName:string){
     console.log('gifname desde el service',gifName)
     return this.http.get<GiphyResponse>(`${environment.apiGifUrl}/gifs/search`,
       {
@@ -44,6 +44,9 @@ export class GifsService {
           limit:20,
         }
       }
+    ).pipe(
+      map((({data})=>data)),
+      map((items)=>GifMapper.mapGiphyItemToGifArray(items))
     )
     
   }
