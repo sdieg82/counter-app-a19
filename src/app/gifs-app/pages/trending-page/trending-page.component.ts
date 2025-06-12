@@ -34,10 +34,6 @@ export default class TrendingPageComponent implements OnInit {
   }
 
   listGifs(){
-    return this.gifService.getGifs().subscribe(
-      (resp)=>{
-        console.log(resp)
-      }
-    )
+    return this.gifService.getGifs()
   }
 }
