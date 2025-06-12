@@ -1,5 +1,6 @@
 import { Component, input } from '@angular/core';
 import { GifListItemComponent } from "./gif-list-item/gif-list-item.component";
+import { Gif } from '../../interfaces/gif.interface';
 
 interface Item{
   class:string
@@ -16,7 +17,7 @@ interface Item{
 export class GifListComponent {
   
 
-  gifs=input.required<string[]>()
+  gifs=input.required<Gif[]>()
   // constructor() {
   //   for (let index = 1; index <= 11; index++) {
   //     this.gifItem.push({

@@ -11,7 +11,9 @@ import { GifMapper } from '../mapper/gif.mapper';
 })
 export class GifsService {
 
-  constructor() { }
+  constructor() {
+    this.getGifs()
+   }
 
   private http=inject(HttpClient)
 
@@ -28,7 +30,8 @@ export class GifsService {
     )
     .subscribe((res)=>{
       const gifs=GifMapper.mapGiphyItemToGifArray(res.data)
-      console.log({gifs})
+      this.trendingGifs.set(gifs)
+    
     })
   }
 }
