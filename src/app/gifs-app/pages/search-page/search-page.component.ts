@@ -2,7 +2,6 @@ import { Component, inject, signal } from '@angular/core';
 import { GifListComponent } from "../../components/gif-list/gif-list.component";
 import { GifsService } from '../../services/gifs.service';
 import { Gif } from '../../interfaces/gif.interface';
-import { GifMapper } from '../../mapper/gif.mapper';
 
 @Component({
   selector: 'app-search-page',
@@ -21,5 +20,4 @@ export default class SearchPageComponent {
       this.gifs.set(res)
     })
   }
-
 }
